@@ -13,6 +13,3 @@ For installation:
     $ cd mac-dev-playbook
     $ ansible-galaxy install -r requirements.yml
     $ ansible-playbook -i inventory --ask-sudo-password main.yml
-    $ cd ~/dotfiles
-    $ bin/install
-    $ bin/setup_osx

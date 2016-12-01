@@ -1,10 +1,4 @@
 ---
-- name: Clone dotfiles
-  git: repo=https://github.com/tomhogans/dotfiles.git dest=/Users/tomh/.dotfiles recursive=yes
-
-- name: Set zsh as shell
-  shell: defaults write com.apple.Terminal 'Shell' -string '/bin/zsh'
-
 - name: Remove all crap from Dock
   shell: dockutil --remove '{{ item }}'
   ignore_errors: true

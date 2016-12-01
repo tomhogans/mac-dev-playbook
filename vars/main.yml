@@ -6,7 +6,6 @@ homebrew_installed_packages:
   - apache-spark
   - autoenv
   - awscli
-  - brew-cask
   - cmake
   - cscope
   - ctags

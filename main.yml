@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
-  user: tomh
   connection: local
 
   vars_files:
@@ -8,4 +7,12 @@
 
   roles:
     - geerlingguy.homebrew
-    - dotfiles
+    - brewconfig
+
+  tasks:
+    - shell: pip2 install ipython flake8 jedi autopep8 ipdb redis requests
+    - shell: pip3 install ipython flake8 jedi autopep8 ipdb redis requests
+    - shell: pip3 install numpy scipy matplotlib pandas scikit-learn
+    - shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+    - name: Clone dotfiles
+      git: repo=https://github.com/tomhogans/dotfiles.git dest=/Users/tomh/.dotfiles recursive=yes
