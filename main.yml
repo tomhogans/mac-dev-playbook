@@ -17,6 +17,9 @@
     - shell: git config --global credential.helper osxkeychain
     - shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
+    - name: Show Library folder in Finder
+      shell: chflags nohidden ~/Library
+
     - name: Show all filename extensions in Finder
       shell: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
