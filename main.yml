@@ -7,7 +7,6 @@
 
   roles:
     - geerlingguy.homebrew
-    - brewconfig
 
   tasks:
     - shell: pip2 install ipython flake8 jedi autopep8 ipdb redis requests
