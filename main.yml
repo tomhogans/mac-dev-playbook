@@ -13,6 +13,15 @@
     - shell: pip2 install ipython flake8 jedi autopep8 ipdb redis requests
     - shell: pip3 install ipython flake8 jedi autopep8 ipdb redis requests
     - shell: pip3 install numpy scipy matplotlib pandas scikit-learn
+
+    - shell: git config --global credential.helper osxkeychain
     - shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+    - name: Show all filename extensions in Finder
+      shell: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+    - name: Save screenshots to Downloads folder
+      shell: defaults write com.apple.screencapture location ~/Downloads/
+
     - name: Clone dotfiles
       git: repo=https://github.com/tomhogans/dotfiles.git dest=/Users/tomh/.dotfiles recursive=yes
