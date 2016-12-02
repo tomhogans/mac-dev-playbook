@@ -9,11 +9,15 @@
     - geerlingguy.homebrew
 
   tasks:
-    - shell: pip2 install ipython flake8 jedi autopep8 ipdb redis requests
-    - shell: pip3 install ipython flake8 jedi autopep8 ipdb redis requests
-    - shell: pip3 install numpy scipy matplotlib pandas scikit-learn
+    - name: Install dev-related python packages to python2 installation
+      shell: pip2 install ipython flake8 jedi autopep8 ipdb redis requests
 
-    - shell: git config --global credential.helper osxkeychain
+    - name: Install dev-related python packages to python3 installation
+      shell: pip3 install ipython flake8 jedi autopep8 ipdb redis requests
+
+    - name: Configure git to use macOS keychain helper
+      shell: git config --global credential.helper osxkeychain
+
     - shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
     - name: Show Library folder in Finder
