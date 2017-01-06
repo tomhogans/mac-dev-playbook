@@ -35,6 +35,22 @@
         src: "/tmp/credentials.zip"
         dest: "/tmp"
 
+    - name: Import archived GPG private keys
+      shell: "gpg --import /tmp/credentials/gpg/*"
+      ignore_errors: yes
+
+    - name: Import SSH keys and configuration
+      shell: "mv /tmp/credentials/ssh ~/.ssh"
+
+    - name: Copy VPN configurations to ~/Downloads
+      shell: "mv /tmp/credentials/vpn ~/.vpnconfig"
+
+    - name: Copy autoenv configurations to ~/.autoenv
+      shell: "mv /tmp/credentials/autoenv ~/.autoenv"
+
+    - name: Clean up credentials archive from tmp folder
+      shell: "rm -rf /tmp/credentials"
+
     - name: Install oh-my-zsh
       shell: "curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh"
 
@@ -50,9 +66,6 @@
     - name: Install vim plugins via Vundle
       shell: vim +PluginInstall +qall
 
-    - name: Install dev-related python packages to python2 installation
-      shell: pip2 install ipython flake8 jedi autopep8 ipdb redis requests
-
     - name: Install dev-related python packages to python3 installation
       shell: pip3 install ipython flake8 jedi autopep8 ipdb redis requests
 
@@ -64,4 +77,3 @@
 
     - name: Save screenshots to Downloads folder
       shell: defaults write com.apple.screencapture location ~/Downloads/
-
