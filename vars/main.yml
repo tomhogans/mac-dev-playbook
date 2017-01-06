@@ -9,7 +9,6 @@ homebrew_installed_packages:
   - cmake
   - cscope
   - ctags
-  - dockutil
   - git
   - gnupg
   - go
@@ -24,9 +23,7 @@ homebrew_installed_packages:
   - python3
   - readline
   - sqlite
-  - ssh-copy-id
   - terraform
-  - tmate
   - tmux
   - tree
   - unrar
