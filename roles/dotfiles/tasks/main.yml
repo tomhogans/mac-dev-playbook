@@ -7,8 +7,6 @@
 - shell: "mkdir -p ~/.config"
 - template: src=flake8 dest=~/.config/flake8
 
-- template: src=gitconfig dest=~/.gitconfig
-
 - template: src=tmux.conf dest=~/.tmux.conf
 
 - template: src=vimrc dest=~/.vimrc
@@ -21,5 +19,42 @@
 - name: Install vim plugins via Vundle
   shell: vim +PluginInstall +qall
 
-- name: Configure git to use macOS keychain helper
-  shell: git config --global credential.helper osxkeychain
+- git_config: 
+    scope: global
+    name: core.editor
+    value: vim
+
+- git_config: 
+    scope: global
+    name: credential.helper
+    value: osxkeychain
+
+- git_config: 
+    scope: global
+    name: diff.tool
+    value: vimdiff
+
+- git_config: 
+    scope: global
+    name: merge.tool
+    value: vimdiff
+
+- git_config: 
+    scope: global
+    name: alias.st
+    value: status
+
+- git_config: 
+    scope: global
+    name: alias.co
+    value: checkout
+
+- git_config: 
+    scope: global
+    name: alias.br
+    value: branch
+
+- git_config: 
+    scope: global
+    name: alias.gr
+    value: "grep -n --color --break --heading -B 2 -A 2 -p"
