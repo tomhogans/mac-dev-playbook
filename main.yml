@@ -10,7 +10,7 @@
     - vars/main.yml
 
   roles:
-    #- { role: geerlingguy.homebrew, when: ansible_os_family == 'Darwin' }
+    - { role: geerlingguy.homebrew, when: ansible_os_family == 'Darwin' }
     - { role: credentials, when: credentials_path != '' }
     - { role: macos-setup, when: ansible_os_family == 'Darwin' }
     - dotfiles
