@@ -1,28 +1,25 @@
 ---
-- hosts: localhost
-  connection: local
+- name: Install oh-my-zsh
+  shell: "curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh"
 
-  tasks:
-    - name: Install oh-my-zsh
-      shell: "curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh"
+- template: src=eslintrc dest=~/.eslintrc
 
-    - template: src=eslintrc dest=~/.eslintrc
+- shell: "mkdir -p ~/.config"
+- template: src=flake8 dest=~/.config/flake8
 
-    - template: src=flake8 dest=~/.config/flake8
+- template: src=gitconfig dest=~/.gitconfig
 
-    - template: src=gitconfig dest=~/.gitconfig
+- template: src=tmux.conf dest=~/.tmux.conf
 
-    - template: src=tmux.conf dest=~/.tmux.conf
+- template: src=vimrc dest=~/.vimrc
 
-    - template: src=vimrc dest=~/.vimrc
+- template: src=zshrc dest=~/.zshrc
 
-    - template: src=zshrc dest=~/.zshrc
+- name: Clone repo for Vundle (vim plugin manager)
+  git: repo=https://github.com/VundleVim/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim recursive=yes
 
-    - name: Clone repo for Vundle (vim plugin manager)
-      git: repo=https://github.com/VundleVim/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim recursive=yes
+- name: Install vim plugins via Vundle
+  shell: vim +PluginInstall +qall
 
-    - name: Install vim plugins via Vundle
-      shell: vim +PluginInstall +qall
-
-    - name: Configure git to use macOS keychain helper
-      shell: git config --global credential.helper osxkeychain
+- name: Configure git to use macOS keychain helper
+  shell: git config --global credential.helper osxkeychain

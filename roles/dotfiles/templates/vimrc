@@ -1,22 +1,28 @@
-" Load Vundle and associated bundles of plugins
-call vundle#rc()
-" Call :BundleInstall in vim to update from repos
-Bundle "vim-scripts/The-NERD-tree"
-Bundle 'scrooloose/nerdcommenter'
-Bundle "majutsushi/tagbar"
-Bundle "bling/vim-airline"
-Bundle "tpope/vim-fugitive"
-Bundle "sheerun/vim-polyglot"
-Bundle "scrooloose/syntastic"
-Bundle 'Chiel92/vim-autoformat'
+set nocompatible
+
+" initialize Vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'majutsushi/tagbar'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'scrooloose/syntastic'
+Plugin 'Chiel92/vim-autoformat'
+
+call vundle#end()
+filetype plugin indent on
 
 set shell=/bin/sh
 
 syntax on
-filetype plugin indent on
 
-" vim settings, no vi-compability
-set nocompatible
 " Backspace fix for OSX
 set backspace=indent,eol,start
 
