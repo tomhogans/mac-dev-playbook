@@ -1,0 +1,9 @@
+---
+- name: Show Library folder in Finder
+  shell: chflags nohidden ~/Library
+
+- name: Show all filename extensions in Finder
+  shell: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+- name: Save screenshots to Downloads folder
+  shell: defaults write com.apple.screencapture location ~/Downloads/

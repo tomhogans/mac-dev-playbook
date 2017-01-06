@@ -10,19 +10,11 @@
     - vars/main.yml
 
   roles:
-    # - geerlingguy.homebrew
-    - credentials
+    - { role: geerlingguy.homebrew, when: ansible_os_family == 'Darwin' }
+    - { role: macos-setup, when: ansible_os_family == 'Darwin' }
+    - { role: credentials, when: ansible_os_family == 'Darwin' }
     - dotfiles
 
   tasks:
     - name: Install dev-related python packages to python3 installation
       shell: pip3 install ipython flake8 jedi autopep8 ipdb redis requests
-
-    - name: Show Library folder in Finder
-      shell: chflags nohidden ~/Library
-
-    - name: Show all filename extensions in Finder
-      shell: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-    - name: Save screenshots to Downloads folder
-      shell: defaults write com.apple.screencapture location ~/Downloads/
