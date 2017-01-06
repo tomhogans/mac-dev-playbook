@@ -27,3 +27,15 @@ The credentials file is expected to be `credentials.zip.gpg`.  Unzipped, it shou
     └── vpn
         ├── org
         │   └── config.ovpn
+
+
+Apps to get from App Store:
+- Adobe Photoshop
+- Microsoft Remote Desktop
+- iVI
+
+Optional via Homebrew Cask:
+- GQRX (SDR)
+- Postico
+- Sequel-Pro
+- Google Music Manager

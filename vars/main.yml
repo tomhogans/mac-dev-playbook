@@ -6,8 +6,6 @@ homebrew_installed_packages:
   - apache-spark
   - autoenv
   - awscli
-  - cmake
-  - cscope
   - ctags
   - git
   - gnupg
@@ -41,11 +39,9 @@ homebrew_cask_apps:
   - google-chrome
   - google-drive
   - gpgtools
-  - gqrx
   - java
   - parallels-desktop
   - rescuetime
-  - sequel-pro
   - skype
   - slack
   - hipchat
@@ -54,11 +50,12 @@ homebrew_cask_apps:
   - tunnelblick
   - vagrant
   - virtualbox
-  - webpquicklook
-  - suspicious-package
-  - qlcolorcode
+  - webpquicklook  # Preview webp files
+  - suspicious-package  # Preview the contents of a standard Apple installer package
+  - qlcolorcode  # Preview source code files with syntax highlighting
   - qlmarkdown
-  - qlprettypatch
-  - qlstephen
+  - qlprettypatch  # Preview .patch files with highlighting
+  - qlstephen  # Preview files without extensions
+  - qlvideo  # Preview most types of video files, as well as their thumbnails, cover art and metadata
   - quicklook-csv
   - quicklook-json
