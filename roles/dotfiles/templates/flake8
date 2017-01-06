@@ -1,0 +1,5 @@
+[flake8]
+ignore = W391,F403,E501,C901,N805
+exclude = build,bower_components,migrations
+max-line-length = 120
+max-complexity = 20

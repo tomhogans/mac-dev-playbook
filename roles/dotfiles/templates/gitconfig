@@ -1,0 +1,26 @@
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	dt = difftool
+	gr = grep -n --color --break --heading -B 2 -A 2 -p
+	ribbon = tag --force _ribbon origin/master
+	catchup = log --patch --reverse --topo-order _ribbon..origin/master
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	editor = vim
+	autocrlf = input
+[apply]
+	whitespace = nowarn
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
