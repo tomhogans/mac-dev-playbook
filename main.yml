@@ -3,13 +3,8 @@
   connection: local
 
   vars_prompt:
-    - name: "gpg_private_key_file"
-      prompt: "GPG private key"
-      default: "/Volumes/USBKey/key.asc"
-
-    - name: "credentials_file"
-      prompt: "GPG-encrypted credentials archive"
-      default: "/Volumes/USBKey/credentials.zip.gpg"
+    - name: "git_email"
+      prompt: "Email address to set in gitconfig"
 
   vars_files:
     - vars/main.yml

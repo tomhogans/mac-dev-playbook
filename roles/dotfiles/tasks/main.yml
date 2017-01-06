@@ -21,6 +21,11 @@
 
 - git_config: 
     scope: global
+    name: user.email
+    value: "{{ git_email }}"
+
+- git_config:
+    scope: global
     name: core.editor
     value: vim
 
