@@ -5,35 +5,38 @@
   vars_prompt:
     - name: "gpg_private_key_file"
       prompt: "GPG private key"
-      default: "/Volume/USBKey/key.asc"
+      default: "/Volumes/USBKey/key.asc"
 
     - name: "credentials_file"
       prompt: "GPG-encrypted credentials archive"
-      default: "/Volume/USBKey/credentials.zip.gpg"
+      default: "/Volumes/USBKey/credentials.zip.gpg"
 
   vars_files:
     - vars/main.yml
 
-  roles:
-    - geerlingguy.homebrew
+  # roles:
+    # - geerlingguy.homebrew
 
   tasks:
     - name: Import GPG private key
-      shell: gpg --import {{ gpg_private_key_file }}
+      shell: "gpg --import {{ gpg_private_key_file }}"
+      ignore_errors: yes
 
     - name: Copy credentials archive to local filesystem
-      src: {{ credentials_file }}
-      dest: /tmp/credentials.zip.gpg
+      copy:
+        src: "{{ credentials_file }}"
+        dest: "/tmp/credentials.zip.gpg"
 
     - name: Decrypt credentials archive
-      shell: gpg --decrypt /tmp/credentials.zip.gpg > /tmp/credentials.zip
+      shell: "gpg --decrypt /tmp/credentials.zip.gpg > /tmp/credentials.zip"
 
     - name: Extract credentials archive
-      src: /tmp/credentials.zip
-      dest: /tmp/credentials
+      unarchive:
+        src: "/tmp/credentials.zip"
+        dest: "/tmp"
 
     - name: Install oh-my-zsh
-      shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+      shell: "curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh"
 
     - name: Copy dot files
       shell: echo "OK"
