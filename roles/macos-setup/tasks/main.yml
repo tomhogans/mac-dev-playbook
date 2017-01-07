@@ -5,5 +5,29 @@
 - name: Show all filename extensions in Finder
   shell: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+- name: Finder - show status bar
+  shell: defaults write com.apple.finder ShowStatusBar -bool true
+
+- name: Finder - show path bar
+  shell: defaults write com.apple.finder ShowPathbar -bool true
+
+- name: Finder - allow text selection in Quick Look
+  shell: defaults write com.apple.finder QLEnableTextSelection -bool true
+
+- name: Display full POSIX path as Finder window title
+  shell: defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+- name: When performing a search, search the current folder by default
+  shell: defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+- name: Disable the warning when changing a file extension
+  shell: defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
 - name: Save screenshots to Downloads folder
   shell: defaults write com.apple.screencapture location ~/Downloads/
+
+- name: Disable "Smart Quotes"
+  shell: defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+
+- name: Use System Print Dialog in Google Chrome
+  shell: defaults write com.google.Chrome DisablePrintPreview -bool true
