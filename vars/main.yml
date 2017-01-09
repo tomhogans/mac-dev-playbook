@@ -21,6 +21,7 @@ homebrew_installed_packages:
   - readline
   - sqlite
   - terraform
+  - thefuck
   - tmux
   - tree
   - unrar
