@@ -51,6 +51,7 @@ homebrew_cask_apps:
   - tunnelblick
   - vagrant
   - virtualbox
+  - visual-studio-code
   - webpquicklook  # Preview webp files
   - suspicious-package  # Preview the contents of a standard Apple installer package
   - qlcolorcode  # Preview source code files with syntax highlighting
