@@ -31,6 +31,9 @@ eval $(thefuck --alias)
 # Download MP3 from YouTube
 alias getmp3='python3 $(which youtube-dl) --extract-audio --audio-format mp3'
 
+# Alias DNS flushing tools
+alias flushdns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;'
+
 # Functions to set JDK version
 function removeFromPath() {
   export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
