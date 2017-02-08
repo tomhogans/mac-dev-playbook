@@ -10,6 +10,8 @@ source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 unsetopt share_history
 
+plugins=(brew mercurial git github gnu-utils osx python ssh-agent virtualenv)
+
 # Put homebrew tools first on path
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.scripts
 
