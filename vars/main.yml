@@ -34,18 +34,17 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - caffeine
-  - evernote
-  - firefox
   - flux
+  - firefox
   - google-chrome
   - google-drive
   - gpgtools
   - java
   - parallels-desktop
+  - evernote
   - rescuetime
   - skype
   - slack
-  - hipchat
   - torbrowser
   - transmission
   - tunnelblick
